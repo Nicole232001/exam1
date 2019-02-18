@@ -16,7 +16,7 @@ favoritos=[];
 addFavoritos(animal){
   this.favoritos.push(animal);
     const toast = this.toastCtrl.create({
-      message: 'Mascota agregada a favoritos',
+      message: 'Agregado a favoritos',
       duration: 2000,
       position: 'top'
     });
