@@ -1,0 +1,37 @@
+<!--
+  Generated template for the VideosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title style="background-color:#39304A">
+      Consolas y Videojuegos
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon_only (click)="clickbuscar()"></button>
+      <ion-icon name="search"></ion-icon>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-color:#847E89">
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let video of videos" col-6>
+        <ion-card (click)="verinfovideo(video)">
+          <img *ngIf ="video.ad.hasOwnProperty('thumbnail')"
+          src="http://img.segundamano.mx/cover/{{video.ad.thumbnail.path}}">
+          <img *ngIf ="!video.ad.hasOwnProperty('thumbnail')" 
+          src="../assets/cont.svg">
+          <ion-card-content>
+            <h2 *ngIf="video.ad.hasOwnProperty('subject')">{{video.ad.subject}} </h2>
+            <p>{{video.ad.locations[0].locations[0].label}},{{video.ad.locations[0].label}}</p>
+            <h2 *ngIf="video.ad.hasOwnProperty('list_price')">{{video.ad.list_price.label}}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

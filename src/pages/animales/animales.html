@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title style="background-color:#274060">
+        Animales y Mascotas
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button icon_only (click)="clickbuscar()"></button>
+        <ion-icon name="search"></ion-icon>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding style="background-color:#8AA1B1"> 
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let animal of animals" col-6>
+          <ion-card (click)="verinfoanimals(animal)">
+            <img *ngIf ="animal.ad.hasOwnProperty('thumbnail')"
+            src="http://img.segundamano.mx/cover/{{animal.ad.thumbnail.path}}">
+            <img *ngIf ="!animal.ad.hasOwnProperty('thumbnail')" 
+             src="../assets/dog.jpg">
+            <ion-card-content>
+              <h2 *ngIf="animal.ad.hasOwnProperty('subject')">{{animal.ad.subject}} </h2>
+              <p>{{animal.ad.locations[0].locations[0].label}},{{animal.ad.locations[0].label}}</p>
+              <h2 *ngIf="animal.ad.hasOwnProperty('list_price')">{{animal.ad.list_price.label}}</h2>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
